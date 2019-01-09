@@ -60,11 +60,11 @@ def callback():
 def handle_message(event):
     TEXT = []
     line_answers = get_answer()
-    TEXT.append("{}はいいぞ!".format(line_answers["name"]))
+    TEXT1 = "{}はいいぞ!".format(line_answers["name"])
     TEXT.apeend(line_answers["url"])
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=TEXT[0])
+        TextSendMessage(text=TEXT1)
     )
     # line_bot_api.reply_message(
     #     event.reply_token,
