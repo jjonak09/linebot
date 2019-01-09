@@ -64,10 +64,10 @@ def handle_message(event):
         event.reply_token,
         TextSendMessage(text=TEXT)
     )
-    # line_bot_api.reply_message(
-    #     event.reply_token,
-    #     TextSendMessage(text=TEXT[1])
-    # )
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text=line_answers["url"])
+    )
 
 
 if __name__ == "__main__":
