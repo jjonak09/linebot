@@ -39,11 +39,8 @@ if channel_access_token is None:
     print('Specify LINE_CHANNEL_ACCESS_TOKEN as environment variable.')
     sys.exit(1)
 
-# line_bot_api = LineBotApi(channel_access_token)
-line_bot_api = LineBotApi('140e81a953b8ecdcb94e8b2afc39a9f5')
-# handler = WebhookHandler(channel_secret)
-handler = WebhookHandler(
-    'VdEp9snTazgzzcuXaKtHbbXrNSrDJIywCAvCtmVGSQmS7GGiyvexrGu5yjeJRvC6Qt8DPt8sokuLv19+1VUZLhG1vrY13/ZK2gKZvehvGTj0ka4uk23RtN10V9RhhrNDv4QUFXdrGLuxOiUgamVNWgdB04t89/1O/w1cDnyilFU=')
+line_bot_api = LineBotApi(channel_access_token)
+handler = WebhookHandler(channel_secret)
 
 
 @app.route("/")
