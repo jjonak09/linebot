@@ -4,9 +4,10 @@ import random
 import re
 import requests
 URL = 'https://api.myjson.com/bins/dzzsg'
-TEXT = []
+# TEXT = []
 read = requests.get(URL)
 data = json.loads(read.text)
-TEXT.append(data["name"] + "はいいぞ")
-TEXT.append(data["url"])
-print(TEXT[0])
+TEXT = "{}はいいぞ!".format(data["name"])
+# TEXT.append(data["name"] + "はいいぞ")
+# TEXT.append(data["url"])
+print(TEXT)
