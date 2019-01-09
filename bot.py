@@ -58,11 +58,17 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    TEXT = []
     line_answers = get_answer()
-    TEXT = "{}はいいぞ! {}".format(line_answers["name"], line_answers["url"])
+    TEXT.append("{}はいいぞ!".format(line_answers["name"]))
+    TEXT.apeend(line_answers["url"])
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=TEXT)
+        TextSendMessage(text=TEXT[0])
+    )
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text=TEXT[1])
     )
 
 
