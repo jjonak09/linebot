@@ -9,7 +9,7 @@ read = requests.get(URL)
 data = json.loads(read.text)
 TEXT = [
     "{}はいいぞ!{}".format(data["name"], data["url"]),
-    "{}はいいぞ!{}".format(data["name"], data["url"])
+    "{}はいいぞ!{}".format(data["name"], data["url"]),
 ]
 # TEXT.append("{}はいいぞ!{}".format(data["name"], data["url"]))
 # TEXT.append("{}はいいぞ!{}".format(data["name"], data["url"]))
