@@ -65,7 +65,7 @@ def handle_message(event):
     # TEXT = "{}はいいぞ! {}".format(line_answers["name"], line_answers["url"])
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=TEXT)
+        TextSendMessage(text=TEXT[1])
     )
 
 
