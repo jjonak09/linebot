@@ -26,14 +26,9 @@ LINE_CHANNEL_SECRET = os.environ["LINE_CHANNEL_SECRET"]
 line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(LINE_CHANNEL_SECRET)
 
-URL = 'https://api.myjson.com/bins/dzzsg'
-
-
-def get_answer():
-    url = URL
-    read = requests.get(URL)
-    data = json.loads(read.text)
-    return data
+URL = 'https://youtuberapi.herokuapp.com/api/vtuber/'
+JSON = 'format=json'
+Youtube_URL = 'https://www.youtube.com/channel/'
 
 
 @app.route("/callback", methods=['POST'])
@@ -53,20 +48,20 @@ def callback():
 
     return 'OK'
 
+
+def get_answer():
+    url = URL + '?' + JSON
+    read = requests.get(URL)
+    data = json.loads(read.text)
+    return data
+
+
 # MessageEvent
-
-
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     line_answers = get_answer()
-    # TEXT = []
-    # TEXT.append("{}はいいぞ!{}".format(data["name"], data["url"]))
-    # TEXT.append("{}はいいぞ!{}".format(data["name"], data["url"]))
-    # TEXT = "{}はいいぞ! {}".format(line_answers["name"], line_answers["url"])
-    TEXT = [
-        "{}はいいぞ!{}".format(data["name"], data["url"]),
-        "{}はいいぞ!{}".format(data["name"], data["url"]),
-    ]
+    TEXT = "{}はいいぞ! {}".format(
+        line_answers[2]["name"], Youtube_URL + line_answers[2]["channel_id"])
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=TEXT)
