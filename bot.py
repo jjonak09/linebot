@@ -63,7 +63,7 @@ def handle_message(event):
     line_answers = get_answer()
     id = random.randrange(len(line_answers))
 
-    TEXT = "{}はいいぞ! {}".format(
+    TEXT = "{}はいいぞ!! {}".format(
         line_answers[id]["name"], Youtube_URL + line_answers[id]["channel_id"])
     line_bot_api.reply_message(
         event.reply_token,
