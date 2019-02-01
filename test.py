@@ -16,7 +16,7 @@ data = json.loads(read.text)
 # TEXT.append("{}はいいぞ!{}".format(data["name"], data["url"]))
 # TEXT.append(data["name"] + "はいいぞ")
 # TEXT.append(data["url"])
-print(data[0]["name2"])
+print(data[0]["name"])
 
 # tag検索
 # https://youtuberapi.herokuapp.com/api/vtuber/?tag=可愛い&format=json
