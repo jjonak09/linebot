@@ -31,7 +31,7 @@ def make_message(req):
     # if params['youtuber_tag'] != "":
     #     url = url + '&tag=' + params['youtuber_tag']
 
-    return url
+    return 'hello'
 
 
 if __name__ == "__main__":
