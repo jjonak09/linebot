@@ -16,11 +16,13 @@ Youtube_URL = 'https://www.youtube.com/channel/'
 @app.route('/webhook', methods=['POST'])
 def webhook():
     req = request.get_json(silent=True, force=True)
-    res = make_message(req)
+    data = get_data_from_api(req)
+    res = make_message(data)
     return make_response(jsonify({'fulfillmentText': res}))
 
 
-def make_message(req):
+def get_data_from_api(req):
+
     params = req['queryResult']['parameters']
 
     if params['youtuber_vtuber'] == 'Vtuber':
@@ -31,7 +33,16 @@ def make_message(req):
     if params['youtuber_tag'] != "":
         url = url + '&tag=' + params['youtuber_tag']
 
-    return url
+    read = requests.get(url)
+    data = json.loads(read.text)
+
+    return data
+
+
+def make_message(data):
+    id = random.randrange(len(data))
+    res = data[id]['name']
+    return res
 
 
 if __name__ == "__main__":
