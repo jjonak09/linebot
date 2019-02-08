@@ -23,15 +23,15 @@ def webhook():
 
 def get_data_from_api(req):
 
-    params = req['queryResult']['parameters']
+    params = req["queryResult"]["parameters"]
 
-    if params['youtuber_vtuber'] == 'Vtuber':
+    if params["youtuber_vtuber"] == 'Vtuber':
         url = URL + 'vtuber/' + JSON_TYPE
-    elif params['youtuber_vtuber'] == 'Youtuber':
+    elif params["youtuber_vtuber"] == 'Youtuber':
         url = URL + 'youtuber/' + JSON_TYPE
 
-    if params['youtuber_tag'] != "":
-        url = url + '&tag=' + params['youtuber_tag']
+    if params["youtuber_tag"] != "":
+        url = url + '&tag=' + params["youtuber_tag"]
 
     read = requests.get(url)
     data = json.loads(read.text)
@@ -41,7 +41,8 @@ def get_data_from_api(req):
 
 def make_message(data):
     id = random.randrange(len(data))
-    res = data[id]['name']
+    res = "{}はいいぞ! {}".format(
+        data[id]["name"], Youtube_URL + data[id]["channel_id"])
     return res
 
 
