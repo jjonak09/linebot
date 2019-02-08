@@ -22,7 +22,9 @@ def webhook():
 
 
 def get_data_from_api(req):
+
     params = req["queryResult"]["parameters"]
+
     if params["youtuber_vtuber"] == 'Vtuber':
         url = URL + 'vtuber/' + JSON_TYPE
     elif params["youtuber_vtuber"] == 'Youtuber':
@@ -30,6 +32,10 @@ def get_data_from_api(req):
 
     if params["youtuber_tag"] != "":
         url = url + '&tag=' + params["youtuber_tag"]
+
+    if params["belonging_agency"] != "":
+        url = url + '&belong=' + params["belonging_agency"]
+
     read = requests.get(url)
     data = json.loads(read.text)
 
