@@ -17,3 +17,8 @@ Youtube_URL = 'https://www.youtube.com/channel/'
 def webhook():
     req = request.get_json(silent=True, force=True)
     return make_response(jsonify({'fullfillmentText': 'hello'}))
+
+
+if __name__ == "__main__":
+    port = int(os.getenv("PORT"))
+    app.run(host="0.0.0.0", port=port)
