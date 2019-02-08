@@ -21,27 +21,15 @@ def webhook():
     return make_response(jsonify({'fulfillmentText': res}))
 
 
-　
-
-
 def get_data_from_api(req):
-
     params = req["queryResult"]["parameters"]
-
-    # youtuber or vtuber
     if params["youtuber_vtuber"] == 'Vtuber':
         url = URL + 'vtuber/' + JSON_TYPE
     elif params["youtuber_vtuber"] == 'Youtuber':
         url = URL + 'youtuber/' + JSON_TYPE
 
-    # tagでフィルタリング
     if params["youtuber_tag"] != "":
         url = url + '&tag=' + params["youtuber_tag"]
-
-    # 所属事務所でフィルタリング
-    # if params["belonging_agency"] != "":
-    #     url = url + '&belong=' + params["belonging_agency"]
-
     read = requests.get(url)
     data = json.loads(read.text)
 
