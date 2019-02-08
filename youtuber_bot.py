@@ -44,12 +44,8 @@ def get_data_from_api(req):
 
 def make_message(data):
     id = random.randrange(len(data))
-    res = [
-        "{}はいいぞ! {}".format(
-            data[id]["name"], Youtube_URL + data[id]["channel_id"]),
-        "{}はいいぞ! {}".format(
-            data[id]["name"], Youtube_URL + data[id]["channel_id"])
-    ]
+    res = "{}はいいぞ! {}".format(
+        data[id]["name"], Youtube_URL + data[id]["channel_id"])
     return res
 
 
