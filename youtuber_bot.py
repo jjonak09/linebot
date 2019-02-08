@@ -16,7 +16,8 @@ Youtube_URL = 'https://www.youtube.com/channel/'
 @app.route('/webhook', methods=['POST'])
 def webhook():
     req = request.get_json(silent=True, force=True)
-    return make_response(jsonify({'fullfillmentText': 'hello'}))
+    # res = make_message(req)
+    return make_response(jsonify({'fulfillmentText': 'hello'}))
 
 
 if __name__ == "__main__":
