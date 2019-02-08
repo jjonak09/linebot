@@ -1,5 +1,5 @@
 # インポートするライブラリ
-from flask import Flask, request, abort
+from flask import Flask, request, abort, make_response, jsonify
 
 from linebot import (
     LineBotApi, WebhookHandler
