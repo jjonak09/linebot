@@ -40,7 +40,7 @@ def get_data_from_api(req):
 
     # 所属事務所でフィルタリング
     if params["belonging_agency"] != "":
-        url = url + '&belong=' + params['belonging_agency']
+        url = url + '&belong=' + params["belonging_agency"]
 
     read = requests.get(url)
     data = json.loads(read.text)
