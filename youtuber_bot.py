@@ -25,7 +25,7 @@ def make_message(req):
 
     if params['youtuber_vtuber'] == 'Vtuber':
         url = URL + 'vtuber/' + JSON_TYPE
-    else if params['youtuber_vtuber'] == 'Youtuber':
+    elif params['youtuber_vtuber'] == 'Youtuber':
         url = URL + 'youtuber/' + JSON_TYPE
 
     # if params['youtuber_tag'] != "":
