@@ -46,9 +46,6 @@ def get_new_video(req):
     params = req["queryResult"]["parameters"]
     url = URL + 'vtuber/' + JSON_TYPE + '&name=' + params["any"]
     read_api = requests.get(url)
-    if read_api == None:
-        url = URL + 'youtuber/' + '&name=' + params["any"]
-        read_api = requests.get(url)
     get_channel_id = json.loads(read_api.text)
     read_youtube_api = requests.get(
         'https://www.googleapis.com/youtube/v3/search?part=id&channelId=' + get_channel_id["channel_id"] + '&order=date&key=AIzaSyDhjFEKpgj1BNY9gqbbz8zpao1U5-mn3jU')
@@ -65,7 +62,9 @@ def make_mes_recommand_youtuber(data):
 
 
 def make_mes_take_new_video(video_id):
-    return 'https://www.youtube.com/watch?v=' + video_id
+    new_video = 'https://www.youtube.com/watch?v=' + video_id
+    res = "最新動画だぞ! {}".format(new_video)
+    return res
 
 
 if __name__ == "__main__":
