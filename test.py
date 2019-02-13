@@ -21,9 +21,13 @@ URL = 'https://youtuberapi.herokuapp.com/api/vtuber/?format=json'
 
 # tag検索
 # https://youtuberapi.herokuapp.com/api/vtuber/?tag=可愛い&format=json
-get_channel_id = "UC4YaOt1yT-ZeyB0OmxHgolA"
+# get_channel_id = "UC4YaOt1yT-ZeyB0OmxHgolA"
 
-read_youtube_api = requests.get(
-    'https://www.googleapis.com/youtube/v3/search?part=id&channelId=' + get_channel_id + '&order=date&key=AIzaSyDhjFEKpgj1BNY9gqbbz8zpao1U5-mn3jU')
+# read_youtube_api = requests.get(
+#     'https://www.googleapis.com/youtube/v3/search?part=id&channelId=' + get_channel_id + '&order=date&key=AIzaSyDhjFEKpgj1BNY9gqbbz8zpao1U5-mn3jU')
+# data = json.loads(read_youtube_api.text)
+# print(data["items"][1]["id"]["videoId"])
+url = 'https://youtuberapi.herokuapp.com/api/vtuber/?format=json&name=キズナアイ'
+read_youtube_api = requests.get(url)
 data = json.loads(read_youtube_api.text)
-print(data["items"][1]["id"]["videoId"])
+print(data[0]["name"])
