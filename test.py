@@ -27,7 +27,8 @@ URL = 'https://youtuberapi.herokuapp.com/api/vtuber/?format=json'
 #     'https://www.googleapis.com/youtube/v3/search?part=id&channelId=' + get_channel_id + '&order=date&key=AIzaSyDhjFEKpgj1BNY9gqbbz8zpao1U5-mn3jU')
 # data = json.loads(read_youtube_api.text)
 # print(data["items"][1]["id"]["videoId"])
-url = 'https://youtuberapi.herokuapp.com/api/vtuber/?format=json&name=キズナアイ'
+url = 'https://youtuberapi.herokuapp.com/api/youtuber/?format=json&name=キズナアイ'
 read_youtube_api = requests.get(url)
+print("hello") if read_youtube_api.status_code == 200 else print("a")
+# print('hellllo') if read_youtube_api == None else print('aa')
 data = json.loads(read_youtube_api.text)
-print(data[0]["name"])
