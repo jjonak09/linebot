@@ -21,7 +21,8 @@ def webhook():
         data = get_data_from_api(req)
         res = make_mes_recommand_youtuber(data)
     elif intent["displayName"] == "take_new_video":
-        res = get_new_video(req)
+        video_id = get_new_video(req)
+        res = make_mes_take_new_video(video_id)
 
     return make_response(jsonify({'fulfillmentText': res}))
 
@@ -57,6 +58,12 @@ def make_mes_recommand_youtuber(data):
     id = random.randrange(len(data))
     res = "{}はいいぞ! {}".format(
         data[id]["name"], Youtube_URL + data[id]["channel_id"])
+    return res
+
+
+def make_mes_take_new_video(video_id):
+    new_video = 'https://www.youtube.com/watch?v=' + video_id
+    res = "最新動画だぞ! {}".format(new_video)
     return res
 
 
