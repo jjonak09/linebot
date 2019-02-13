@@ -44,7 +44,7 @@ def get_data_from_api(req):
 
 def get_new_video(req):
     params = req["queryResult"]["parameters"]
-    url = URL + 'vtuber/' + '&name=' + params["any"]
+    url = URL + 'vtuber/' + JSON_TYPE + '&name=' + params["any"]
     read = requests.get(url)
     if read == None:
         url = URL + 'youtuber/' + '&name=' + params["any"]
