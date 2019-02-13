@@ -62,7 +62,7 @@ def make_mes_recommand_youtuber(data):
     return res
 
 
-def make_mes_to_take_new_video(video_id):
+def make_mes_take_new_video(video_id):
     return 'https://www.youtube.com/watch?v=' + video_id
 
 
