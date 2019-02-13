@@ -50,7 +50,7 @@ def get_new_video(req):
     #     'https://www.googleapis.com/youtube/v3/search?part=id&channelId=' + get_youtuber_data["channel_id"] + '&order=date&key=AIzaSyDhjFEKpgj1BNY9gqbbz8zpao1U5-mn3jU')
     # get_video_id = json.loads(read_youtube_api.text)
     # video_id = get_video_id["items"][1]["id"]["videoId"]
-    return get_youtuber_data["name"]
+    return get_youtuber_data[1]["name"]
 
 
 def make_mes_recommand_youtuber(data):
