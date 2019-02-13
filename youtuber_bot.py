@@ -21,7 +21,7 @@ def webhook():
         data = get_data_from_api(req)
         res = make_mes_recommand_youtuber(data)
     elif intent["displayName"] == "take_new_video":
-        res = "hello"
+        res = get_new_video(req)
 
     return make_response(jsonify({'fulfillmentText': res}))
 
@@ -39,6 +39,18 @@ def get_data_from_api(req):
     read = requests.get(url)
     data = json.loads(read.text)
     return data
+
+
+def get_new_video(req):
+    params = req["queryResult"]["parameters"]
+    url = URL + 'vtuber/' + JSON_TYPE + '&name=' + params["any"]
+    read_api = requests.get(url)
+    get_channel_id = json.loads(read_api.text)
+    read_youtube_api = requests.get(
+        'https://www.googleapis.com/youtube/v3/search?part=id&channelId=' + get_channel_id["channel_id"] + '&order=date&key=AIzaSyDhjFEKpgj1BNY9gqbbz8zpao1U5-mn3jU')
+    get_video_id = json.loads(read_youtube_api.text)
+    video_id = get_video_id["items"][1]["id"]["videoId"]
+    return video_id
 
 
 def make_mes_recommand_youtuber(data):
