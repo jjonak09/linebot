@@ -45,10 +45,10 @@ def get_data_from_api(req):
 def get_new_video(req):
     params = req["queryResult"]["parameters"]
     url = URL + 'vtuber/' + JSON_TYPE + '&name=' + params["any"]
-    read = requests.get(url)
-    if read == None:
-        url = URL + 'youtuber/' + '&name=' + params["any"]
     read_api = requests.get(url)
+    if read_api == None:
+        url = URL + 'youtuber/' + '&name=' + params["any"]
+        read_api = requests.get(url)
     get_channel_id = json.loads(read_api.text)
     read_youtube_api = requests.get(
         'https://www.googleapis.com/youtube/v3/search?part=id&' + get_channel_id["channel_id"] + '&order=date&key=AIzaSyDhjFEKpgj1BNY9gqbbz8zpao1U5-mn3jU')
