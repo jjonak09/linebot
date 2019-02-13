@@ -46,11 +46,11 @@ def get_new_video(req):
     url = URL + 'vtuber/' + JSON_TYPE + '&name=' + params["any"]
     read_api = requests.get(url)
     get_youtuber_data = json.loads(read_api.text)
-    # read_youtube_api = requests.get(
-    #     'https://www.googleapis.com/youtube/v3/search?part=id&channelId=' + get_youtuber_data["channel_id"] + '&order=date&key=AIzaSyDhjFEKpgj1BNY9gqbbz8zpao1U5-mn3jU')
-    # get_video_id = json.loads(read_youtube_api.text)
-    # video_id = get_video_id["items"][1]["id"]["videoId"]
-    return get_youtuber_data[0]["name"]
+    read_youtube_api = requests.get(
+        'https://www.googleapis.com/youtube/v3/search?part=id&channelId=' + get_youtuber_data[0]["channel_id"] + '&order=date&key=AIzaSyDhjFEKpgj1BNY9gqbbz8zpao1U5-mn3jU')
+    get_video_id = json.loads(read_youtube_api.text)
+    video_id = get_video_id["items"][0]["id"]["videoId"]
+    return video_id
 
 
 def make_mes_recommand_youtuber(data):
