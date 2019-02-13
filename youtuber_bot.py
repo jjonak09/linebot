@@ -45,7 +45,8 @@ def get_data_from_api(req):
 def get_new_video(req):
     params = req["queryResult"]["parameters"]
     url = URL + 'vtuber/' + '&name=' + params["any"]
-    if read = requests.get(url) == None:
+    read = requests.get(url)
+    if read == None:
         url = URL + 'youtuber/' + '&name=' + params["any"]
     read_api = requests.get(url)
     get_channel_id = json.loads(read_api.text)
