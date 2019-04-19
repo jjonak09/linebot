@@ -52,7 +52,7 @@ def get_new_video(req):
         read_api = requests.get(url)
         get_youtuber_data = json.loads(read_api.text)
     read_youtube_api = requests.get(
-        'https://www.googleapis.com/youtube/v3/search?part=id&channelId=' + get_youtuber_data[0]["channel_id"] + '&order=date&key=AIzaSyDhjFEKpgj1BNY9gqbbz8zpao1U5-mn3jU')
+        'https://www.googleapis.com/youtube/v3/search?part=id&channelId=' + get_youtuber_data[0]["channel_id"] + '&order=date&key=')
     get_video_id = json.loads(read_youtube_api.text)
     video_id = get_video_id["items"][0]["id"]["videoId"]
     return video_id
