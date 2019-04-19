@@ -1,5 +1,4 @@
-# Youtuber & Vtuber LINE BOT
+# Youtuber & Vtuberを紹介する LINE BOT
 
-## 制作途中
 
-![LINE BOT](./bot.jpg)
+![LINE BOT](./bot.png)
